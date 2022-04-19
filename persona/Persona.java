@@ -8,5 +8,8 @@ public class Persona{
     this.dni="74543005M";
 
   }
-
+  //ToString
+  public String toString(){
+    return "me llamo " + this.nombre + " y mi dni es " + this.dni;
+  }
 }
