@@ -1,6 +1,6 @@
 public class Persona{
-  private string nombre;
-  private string dni;
+  private String nombre;
+  private String dni;
 
   //constructores
   public Persona(){
