@@ -1,6 +1,6 @@
 public class Persona{
-  private String nombre;
-  private String dni;
+  protected String nombre;
+  protected String dni;
 
   //constructores
   public Persona(){
@@ -10,6 +10,10 @@ public class Persona{
   public Persona(String nombre, String dni){
     this.nombre=nombre;
     this.dni=dni;
+  }
+  public Persona(Persona persona){
+    this.nombre = persona.nombre;
+    this.dni = persona.dni;
   }
   public String getNombre(){
     return this.nombre;
