@@ -16,4 +16,10 @@ public class Alumno extends Persona {
     super(alumno.nombre, alumno.dni);
     this.grado = alumno.grado;
   }
+  public String getGrado(){
+    return this.grado;
+  }
+  public void setGrado(String grado){
+   this.grado = grado;
+ }
 }
