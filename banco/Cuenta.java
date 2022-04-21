@@ -31,6 +31,9 @@ public class Cuenta{
   public Double ingresar(Double cantidad_que_ingresas){
     return cantidad + cantidad_que_ingresas;
   }
+  public Double sacar(Double cantidad_que_sacas){
+    return cantidad-cantidad_que_sacas;
+  }
 
 
 
