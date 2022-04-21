@@ -1,11 +1,12 @@
 public class Cuenta{
   protected String titular;
   protected Double cantidad;
+  public Double cantidad_que_ingresas;
 
   //constructores
   public Cuenta(){
     this.titular="";
-    this.cantidad=0;
+    this.cantidad=0.99;
   }
   public Cuenta(String titular, Double cantidad){
     this.titular=titular;
@@ -26,6 +27,9 @@ public class Cuenta{
   }
   public void setCantidad(Double cantidad){
    this.cantidad = cantidad;
+  }
+  public Double ingresar(Double cantidad_que_ingresas){
+    return cantidad + cantidad_que_ingresas;
   }
 
 
