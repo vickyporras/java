@@ -4,8 +4,8 @@ public class Cuenta{
 
   //constructores
   public Cuenta(){
-    this.titular="Victoria";
-    this.cantidad=280.000;
+    this.titular="";
+    this.cantidad=0;
   }
   public Cuenta(String titular, Double cantidad){
     this.titular=titular;
@@ -13,12 +13,12 @@ public class Cuenta{
   }
   public Cuenta(Cuenta cuenta){
     this.titular = cuenta.titular;
-    this.cantidad = cuenta.cuenta;
+    this.cantidad = cuenta.cantidad;
   }
   public String getTitular(){
     return this.titular;
   }
-  public Double getCantidad{
+  public Double getCantidad(){
     return this.cantidad;
   }
   public void setTitular(String titular){
@@ -27,6 +27,7 @@ public class Cuenta{
   public void setCantidad(Double cantidad){
    this.cantidad = cantidad;
   }
+
 
 
   //ToString

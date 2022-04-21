@@ -22,4 +22,7 @@ public class Alumno extends Persona {
   public void setGrado(String grado){
    this.grado = grado;
  }
+ public String toString(){
+   return super.toString() + " Estoy en el grado " + this.grado;
+ }
 }
