@@ -9,7 +9,17 @@ public class Main{
       System.out.println("Escribe 1 o 2 dependiendo de que quieras hacer: ");
       int empezamos =scu.nextInt();
       if (empezamos==1){
-        System.out.println("no he terminado esta parte");
+        System.out.println("Para crear una nueva cuenta debes introducir tus datos:");
+        Scanner sct = new Scanner(System.in);
+        System.out.println("El nombre del titular que deses: ");
+        String titular = sct.nextLine();
+        miCuenta = (titular, 0.000);
+        Scanner scc = new Scanner(System.in);
+        System.out.println("Escribe la contraseña que quieras utilizar: ");
+        int contraseña=scc.nextInt();
+
+
+
       }
       if (empezamos==2){
         System.out.println("hola");
