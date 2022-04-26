@@ -8,12 +8,12 @@ public class Main{
       System.out.println("como quieres que sea tu electrodomestico?");
       Scanner scp = new Scanner(System.in);
       System.out.println("escribe un precio(en numero entero): ");
-      int precio =scp.nextInt();
+      double precio =scp.nextInt();
     //  Scanner scc =new Scanner(System.in);
     //  System.out.println("escribe un color para tu electrodomestico: ");
       //string color = scc.nextString();
 
-      Electrodomestico miElectrodomestico = new Electrodomestico(2726.099, "color", "A", "80Kg");
+      Electrodomestico miElectrodomestico = new Electrodomestico(precio, "color", "A", "80Kg");
       System.out.println(miElectrodomestico);
       System.out.println("el PRECIO final es  " + miElectrodomestico.precio_final(23.87,"A"));
     }
