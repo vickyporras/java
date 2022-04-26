@@ -19,7 +19,7 @@ public class Electrodomestico{
 
   // No es necesario utilizar listas dinámicas ni, por tanto, ArrayList.
   // Se declaran aquí y no dentro de las funciones porque se van a utilizar más de una vez.
-  String colores[] = {"blanco","negro","rojo","azul","metalizado"};
+  String colores[] = {"BLANCO","NEGRO","ROJO","AZUL","METALIZADO"};
   String codigos[] = {"F","E","D","C","B","A","AA","AAA"};
 
   // NUEVO -> final static == const
@@ -64,8 +64,8 @@ public class Electrodomestico{
     this.precioBase = precioBase;
   }
   public void setColor(String color){
-    //this.color = color;
-    comprobarColor(color);
+    this.color = COLOR;
+    comprobar(color,colores);
   }
   public void setConsumoEnergetico(String consumoEnergetico){
     //this.consumoEnergetico = consumoEnergetico;
@@ -87,15 +87,12 @@ public class Electrodomestico{
     return this.peso;
   }
 
-  private void comprobarColor(String color){
+  private void comprobar(String buscar, String donde_buscar[]){
     boolean encontrado = false;
-
-    this.color = COLOR;              //Por defecto.
-    color = color.toLowerCase();
-    for (int i = 0 ; i < colores.length && !encontrado ; i++){
-      if (colores[i].equals(color)){
+    buscar = buscar.toUpperCase();
+    for (int i = 0 ; i < donde_buscar.length && !encontrado ; i++){
+      if (donde_buscar[i].equals(buscar)){
         encontrado = true;
-        this.color = color;
       }
     }
   }
@@ -113,7 +110,7 @@ public class Electrodomestico{
   }
   */
   // Podemos mejorar comprobarCodigoEnergetico para que devuelva la posición en la que ha encontrado la letra:
-  private int comprobarCodigoEnergetico(String codigo){
+/*  private int comprobarCodigoEnergetico(String codigo){
     boolean encontrado = false;
 
     this.consumoEnergetico = CONSUMO;              //Por defecto.
@@ -127,7 +124,7 @@ public class Electrodomestico{
     }
     return i-1; //Porque si no el i++ devuelve la siguiente posición.
   }
-
+*/
   public double precioFinal(){
     return this.precioBase + extraPeso() + extraEficiencia() + extraColor();
 
