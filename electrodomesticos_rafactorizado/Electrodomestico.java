@@ -48,7 +48,7 @@ public class Electrodomestico{
     //this.color = color;
     this.setColor(color);
     //this.consumoEnergetico = consumoEnergetico;
-    comprobarCodigoEnergetico(consumoEnergetico);
+    comprobar(CONSUMO, codigos);
     this.peso = peso;
   }
   public Electrodomestico(Electrodomestico electrodomestico){
@@ -67,9 +67,9 @@ public class Electrodomestico{
     this.color = COLOR;
     comprobar(color,colores);
   }
-  public void setConsumoEnergetico(String consumoEnergetico){
-    //this.consumoEnergetico = consumoEnergetico;
-    comprobarCodigoEnergetico(consumoEnergetico);
+  public void setConsumoEnergetico(){
+    this.consumoEnergetico = consumoEnergetico;
+    comprobar(CONSUMO, codigos );
   }
   public void setPeso(double peso){
     this.peso = peso;
@@ -94,6 +94,7 @@ public class Electrodomestico{
       if (donde_buscar[i].equals(buscar)){
         encontrado = true;
       }
+      return i-1;
     }
   }
   /*
@@ -140,7 +141,7 @@ public class Electrodomestico{
     |0|20|40|60|80|100|120|140|
     */
     // hemos mejorado comprobarCodigoEnergetico() para que devuelva la posición.
-    int posicion = comprobarCodigoEnergetico(this.consumoEnergetico);
+    int posicion = comprobar(CONSUMO, codigos);
     return posicion*20;
   }
   private double extraColor(){
