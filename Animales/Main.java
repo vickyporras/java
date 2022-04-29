@@ -5,5 +5,6 @@ public class Main{
     Gato rafa = new Gato();
     System.out.println(rafa.durmiendo());
     System.out.println(rafa.onomatopeya());
+    System.out.println(rafa.comiendo());
   }
 }
