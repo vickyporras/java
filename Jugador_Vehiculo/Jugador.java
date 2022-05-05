@@ -11,7 +11,10 @@ public class Jugador{
     this.vidas = MAXVIDAS;
     this.coordenadas = COOR;
   }
-
+  public void andar (int x, int y){
+    this.coordenadas[0] += x;
+    this.coordenadas[1] +=y;
+  }
   private String imprCoor(){
     return ("(" + coordenadas[0] + "," + coordenadas[1] + ")");
   }
