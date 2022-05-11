@@ -27,13 +27,15 @@ enum MediosTransporte{
   public double calcularCuantoCuesta(double kmRecorridos){
     return kmRecorridos * precio;
   }
+  public double calcularTiempo(double kmRecorridos){
+    return (kmRecorridos*1)/km;
+  }
 }
 
 public class Main{
   public static void main(String[] args){
     MediosTransporte coche1 = MediosTransporte.COCHE;
-    System.out.println("Me cuesta recorrer 70km en coche:");
-    System.out.println(coche1.calcularCuantoCuesta(70));
-    System.out.println("euros");
+    System.out.println("Me cuesta recorrer 70km en coche: " + coche1.calcularCuantoCuesta(70) + " euros.");
+    System.out.println("Tardo en recorrer 30km en coche: " + coche1.calcularTiempo(30) + " horas." );
   }
 }
