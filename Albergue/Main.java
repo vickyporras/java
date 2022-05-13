@@ -37,6 +37,7 @@ enum Habitaciones{
 
 public class Main{
   public static void main(String[] args){
+    String problema;
     System.out.println("Vicky Porras :)");
     System.out.println("Prueba de codigo: ");
     Habitaciones habitacionMaria = Habitaciones.SIMPLES;
