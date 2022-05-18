@@ -34,7 +34,9 @@ public enum Albergue{
   public void setDisponibles(int disponibles){
     this.disponibles = disponibles;
   }
-
+  public void actualizar_habiatciones_disponibles(){
+    this.disponibles = disponibles - 1;
+  }
   public boolean numPersonasValido(int numPersonas){
     return numPersonas <= this.personas;
   }
