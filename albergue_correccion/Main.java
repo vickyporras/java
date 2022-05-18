@@ -1,55 +1,53 @@
 import java.util.Scanner;
 
-public class Main{
+public class Main {
   public static void solucionAlternativa(int numPersonas){
     Albergue arrAlbergue[] = Albergue.values();
-    double descuento = 0.85; // Descuento del 15% es *0,85
-    double habitacionesNec;
-    double precio;
+    double precio, habNecesarias;
+    double descuento = 0.85; // 15% descuento == multiplicar * 0.85
 
-    for (Albergue h : arrAlbergue){
-      habitacionesNec = Math.ceil((double)numPersonas/(double)h.getPersonas());
-      if (habitacionesNec <= h.getHabitaciones()){
-        precio = habitacionesNec*h.getPrecio()*descuento;
+    for ( Albergue h : arrAlbergue){
+      habNecesarias = Math.ceil((double)numPersonas/(double)h.getPersonas());
+      if (h.getDisponibles() > habNecesarias){
+        precio = h.getPrecio()*descuento*habNecesarias;
         System.out.println("Con habitaciones de tipo " + h + " vas a necesitar " +
-        habitacionesNec + " habitaciones y el precio por dia con descuento " +
+        habNecesarias + " habitaciones y el precio por dia con descuento es: " +
         precio + " euros.");
       }
     }
+
   }
 
   public static void main(String[] args){
     Scanner sc = new Scanner (System.in);
 
+    String tipoHabitacion;
     Albergue habitacion = Albergue.SIMPLE;
-    String tipoHabit;
     int numPersonas = 0, numNoches;
-    double precioTotal, precioNoche, precioPorPersona;
-    boolean valido = false;
+    double precioTotal, precioPorPersona;
+    boolean numPersonasValido = false;
 
-    //System.out.println("-- Comprobar que el tipo de habitacion es valido --");
-    while (!valido){
-      System.out.println("-- Solicitar tipo de habitacion, numero de personas y numero de noches --");
+    while(!numPersonasValido){
       System.out.print("Indica el tipo de habitacion que desea: ");
-      tipoHabit = sc.nextLine();
-      habitacion = Albergue.valueOf(tipoHabit);
-      System.out.print("Indica el numero de personas que sois: ");
-      //numPersonas = sc.nextInt(); sc.nextLine();
-      numPersonas = Integer.parseInt(sc.nextLine());
-      valido = habitacion.numPersValido(numPersonas);
+      tipoHabitacion = sc.nextLine();
+      habitacion = Albergue.valueOf(tipoHabitacion);
+      System.out.print("Indica el numero de personas: ");
+      numPersonas = sc.nextInt();
+      sc.nextLine(); // Limpiamos el buffer.
+      //System.out.println(" -- Comprobar que el numero de personas es valido -- ");
+      numPersonasValido = habitacion.numPersonasValido(numPersonas);
     }
-    System.out.print("Indica el numero de noches que os vais a quedar: ");
-    //numNoches = sc.nextInt(); sc.nextLine();
-    numNoches = Integer.parseInt(sc.nextLine());
-    System.out.println("-- Calcular precio total -- ");
+    System.out.print("Indica el numero de noches: ");
+    numNoches = sc.nextInt();
+    //System.out.println(" -- Cuanto vale la habitacion en total -- ");
     precioTotal = habitacion.precioTotal(numNoches);
-    System.out.println("El precio total es de: " + precioTotal);
-    System.out.println("-- Calcular precio por persona -- ");
-    precioPorPersona = habitacion.precioPorPersona(precioTotal,numPersonas);
-    System.out.println("El precio por persona es de: " + precioPorPersona);
-    System.out.println("-- Proponer habitacion alternativa con descuento --");
-    if (habitacion.getHabitaciones() == 0){
-      System.out.println("Hemos cometido un error y no quedan libres habitaciones como las reservada, tenemos estas opciones con descuento: ");
+    System.out.println("El precio total es de " + precioTotal + " euros.");
+    //System.out.println(" -- Cuanto vale la habitacion en total por persona -- ");
+    precioPorPersona = habitacion.precioPorPersona(numPersonas,precioTotal);
+    System.out.println("El precio por persona es de " + precioPorPersona + " euros.");
+
+    if (habitacion.getDisponibles() == 0){
+      System.out.println("Hemos cometido un error, toma descuento (estas son las opciones): ");
       solucionAlternativa(numPersonas);
     }
   }
